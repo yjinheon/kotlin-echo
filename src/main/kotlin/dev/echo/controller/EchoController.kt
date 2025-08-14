@@ -22,7 +22,6 @@ data class EchoBody(
 )
 
 
-
 @RestController
 @RequestMapping("/api")
 class EchoController {
