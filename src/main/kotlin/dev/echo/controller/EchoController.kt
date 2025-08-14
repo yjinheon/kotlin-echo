@@ -29,7 +29,7 @@ class EchoController {
     @GetMapping("/health")
     fun hello() =  mapOf("status" to "ok", "ts" to Instant.now().toString())
 
-    @RequestMapping("/echo/**", method = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE])
+    @RequestMapping("/reflect/**", method = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE])
     fun echo(req: HttpServletRequest, @RequestBody(required = false) body: Any?): EchoBody {
         val headers = req.headerNames.asSequence().associateWith { req.getHeader(it) }
         val query = req.parameterMap.mapValues { it.value.firstOrNull() }
